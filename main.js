@@ -8,7 +8,7 @@ const questions = [
         question: "ideal weekend vibe?",
         answers: {
             A: {
-                text: "exploring the city, popping into cafes and galleries, staying active",
+                text: "exploring the city, popping into cafes, staying active",
                 scores: ["9060", "2002r", "480"]
             },
             B: {
@@ -244,47 +244,3 @@ const questions = [
     }
 ];
 
-const startPage = document.getElementById("start-page");
-const quizPage = document.getElementById("quiz-page");
-const questionElement = document.getElementById("question");
-const imageElement = document.getElementById("image");
-const buttonA = document.getElementById("a");
-const buttonB = document.getElementById("b");
-const buttonC = document.getElementById("c");
-
-function startQuiz() {
-  startPage.style.display = "none";
-  quizPage.style.display = "block";
-  showQuestion();
-}
-
-document.getElementById("start-button").addEventListener("click", startQuiz);
-
-function showQuestion() {
-  const q = questions[current_question];
-  questionElement.textContent = q.question;
-  buttonA.textContent = q.answers.A.text;
-  buttonB.textContent = q.answers.B.text;
-  buttonC.textContent = q.answers.C.text;
-}
-
-function selectAnswer(letter) {
-  const scores = questions[current_question].answers[letter].scores;
-  scores.forEach(shoe => {
-    const index = results.indexOf(shoe);
-    if (index !== -1) {
-      user_scores[index]++;
-    }
-  });
-
-  current_question++;
-  if (current_question < questions.length) {
-    showQuestion();
-  } else {
-    showResult();
-  }
-}
-
-buttonA.addEventListener("click", () => selectAnswer("a"));
-buttonB.addEventListener("click", () => selectAnswer("b"));
-buttonC.addEventListener("click", () => selectAnswer("c"));

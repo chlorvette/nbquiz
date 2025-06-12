@@ -28,13 +28,16 @@ img {
 .italic {
     font-style: italic;
 }
-#start-button {
+button {
     background-color: #D0B49F;
     padding: 10px;
     border-radius: 15px;
     border-color: #E7D1C9;
     transition: 0.4s;
 }
-#start-button:hover {
+button:hover {
     background-color: #C19A7D;
+}
+#quiz-page button {
+    margin: 5px;
 }
