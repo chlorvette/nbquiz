@@ -244,3 +244,18 @@ const questions = [
     }
 ];
 
+function startQuiz() {
+    document.getElementById("start-page").style.display = "none";
+    document.getElementById("quiz-page").style.display = "block";
+    displayQuestion();
+}
+
+function displayQuestion() {
+    const question = questions[current_question];
+    document.getElementById("question").innerText = question.question;
+    ["A", "B", "C"].forEach((answer) => {
+        console.log(answer);
+        document.getElementById(answer).innerText = questions[current_question].answers[answer].text;
+        document.getElementById(answer).onclick = () => selectAnswer(answer);
+    });
+}
