@@ -17,9 +17,9 @@ body {
     min-height: fit-content;
     margin: 60px;
     box-sizing: border-box;
-    text-align: center;
     border-style: solid;
     border-color: #E7D1C9;
+    text-align: center;
 }
 img {
     width: 100%;
@@ -40,4 +40,8 @@ button:hover {
 }
 #quiz-page button {
     margin: 5px;
+    width: 90%;
+}
+#quiz-page {
+    display: inline-block;
 }

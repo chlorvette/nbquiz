@@ -42,21 +42,21 @@ const questions = [
         question: "choose your dream destination:",
         answers: {
             A: {
-                text: "tokyo – sleek fashion, endless energy, futuristic cool",
+                text: "tokyo - sleek fashion, endless energy, futuristic cool",
                 scores: ["9060", "1000", "1906"]
             },
             B: {
-                text: "copenhagen – minimalist beauty, bikes, modern design",
+                text: "copenhagen - minimalist beauty, bikes, modern design",
                 scores: ["991v2", "1500", "2002r"]
             },
             C: {
-                text: "lisbon – sun-drenched streets, vintage shops, chill cafés",
+                text: "lisbon - sun-drenched streets, vintage shops, chill cafes",
                 scores: ["530", "740", "550"]
             }
         }
     },
     {
-        question: "what’s your default morning ritual?",
+        question: "what's your default morning ritual?",
         answers: {
         A: {
             text: "wake up, get dressed, eat breakfast",
@@ -90,7 +90,7 @@ const questions = [
         }
     },
     {
-        question: "what’s your ideal creative outlet?",
+        question: "what's your ideal creative outlet?",
         answers: {
         A: {
             text: "writing (literary arts)",
@@ -127,15 +127,15 @@ const questions = [
         question: "choose your dream destination",
         answers: {
         A: {
-            text: "tokyo or seoul – fast-paced cities full of energy and style",
+            text: "tokyo or seoul - fast-paced cities full of energy and style",
             scores: ["9060", "1000", "480"]
         },
         B: {
-            text: "copenhagen or amsterdam – cozy, aesthetic, clean and classic",
+            text: "copenhagen or amsterdam - cozy, aesthetic, clean and classic",
             scores: ["991v2", "530", "740"]
         },
         C: {
-            text: "bali or patagonia – peace, nature, good balance",
+            text: "bali or patagonia - peace, nature, good balance",
             scores: ["2002r", "1500", "550"]
         }
         }
@@ -175,7 +175,7 @@ const questions = [
         }
     },
     {
-        question: "which design do you value most—form, function, or storytelling?",
+        question: "which design element do you value most? form, function, or storytelling?",
         answers: {
         A: {
             text: "form",
@@ -192,7 +192,7 @@ const questions = [
         }
     },
     {
-        question: "what kind of environment do you thrive in—urban coastal, rural, or digital?",
+        question: "what kind of environment do you thrive in? urban coastal, rural, or digital?",
         answers: {
         A: {
             text: "urban",
@@ -229,15 +229,15 @@ const questions = [
         question: "what does your dream workspace look like?",
         answers: {
         A: {
-            text: "organized, neat, anyone can find anything very easily—all follows a meticulous color scheme",
+            text: "organized, neat, anyone can find anything very easily; all follows a meticulous color scheme",
             scores: ["1500", "991v2", "2002r"]
         },
         B: {
-            text: "messy but loved, only i can find things but that’s okay because why are you looking through my stuff anyway",
+            text: "messy but loved, only i can find things... but that's okay, because why are you looking through my stuff anyway?",
             scores: ["740", "550", "530"]
         },
         C: {
-            text: "idk whatever happens happens i guess i’ll just let it be",
+            text: "idk whatever happens happens i guess i'll just let it be",
             scores: ["480", "1000", "9060"]
         }
         }
@@ -254,8 +254,21 @@ function displayQuestion() {
     const question = questions[current_question];
     document.getElementById("question").innerText = question.question;
     ["A", "B", "C"].forEach((answer) => {
-        console.log(answer);
         document.getElementById(answer).innerText = questions[current_question].answers[answer].text;
         document.getElementById(answer).onclick = () => selectAnswer(answer);
     });
+}
+
+function selectAnswer(answer) {
+    const scores = questions[current_question].answers[answer].scores;
+    scores.forEach((score) => {
+        user_scores[results.indexOf(score)] += 1;
+    });
+    console.log(user_scores);
+    current_question++;
+    if (current_question < questions.length) {
+        displayQuestion();
+    } else {
+        showResults();
+    }
 }
