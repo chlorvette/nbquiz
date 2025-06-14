@@ -1,4 +1,4 @@
-const results = ["9060", "530", "740", "1000", "2002r", "1500", "480", "550", "1906", "557v1", "991v2"];
+const results = ["9060", "530", "740", "1000", "2002r", "1500", "480", "550", "1906", "991v2"];
 let user_scores = new Array(results.length).fill(0);
 
 let current_question = 0;
