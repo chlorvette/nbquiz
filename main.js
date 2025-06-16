@@ -192,7 +192,7 @@ const questions = [
         }
     },
     {
-        question: "what kind of environment do you thrive in? urban coastal, rural, or digital?",
+        question: "what kind of environment do you thrive in? urban, rural, or digital?",
         answers: {
         A: {
             text: "urban",
