@@ -45,3 +45,6 @@ button:hover {
 #quiz-page {
     display: inline-block;
 }
+a {
+    color: black
+}

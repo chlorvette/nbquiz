@@ -264,11 +264,20 @@ function selectAnswer(answer) {
     scores.forEach((score) => {
         user_scores[results.indexOf(score)] += 1;
     });
-    console.log(user_scores);
     current_question++;
     if (current_question < questions.length) {
         displayQuestion();
     } else {
         showResults();
     }
+}
+
+function showResults() {
+    const result = results[user_scores.indexOf(Math.max(...user_scores))];
+    document.getElementById("quiz-page").style.display = "none";
+    document.getElementById("results-page").style.display = "block";
+    document.getElementById("banner").innerText = `your result: ${result}!`;
+    const img = document.getElementById("image");
+    img.src = `media/${result}.png`;
+    img.alt = `result description poster for ${result}`;
 }
